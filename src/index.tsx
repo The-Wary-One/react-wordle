@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 
 import './index.css'
-import App from './App'
+import Init from './Init'
 import reportWebVitals from './reportWebVitals'
 
 const client = new ApolloClient({
@@ -14,7 +14,7 @@ const client = new ApolloClient({
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <App />
+            <Init />
         </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root')
