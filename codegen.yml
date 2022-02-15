@@ -1,0 +1,18 @@
+overwrite: true
+schema: "../server/src/graphql/schema.ts"
+documents: "src/hooks/*.ts"
+generates:
+  src/generated/index.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      useTypeImports: true
+      immutableTypes: true
+      strictScalars: true
+      scalars: 
+        JSONObject: "@zkwordle/server/src/graphql/scalars#JSONObject"
+        NonEmptyString: "@zkwordle/server/src/graphql/scalars#NonEmptyString"
+        ValidGuess: "@zkwordle/server/src/graphql/scalars#ValidGuess"
+        WordHash: "@zkwordle/server/src/graphql/scalars#WordHash"

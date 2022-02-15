@@ -1,36 +1,34 @@
-import { getGuessStatuses } from './statuses'
-import { solutionIndex } from './words'
 import { GAME_TITLE } from '../constants/strings'
+import { Hint } from '../generated'
 
 export const shareStatus = (
-  guesses: string[],
-  lost: boolean,
-  isHardMode: boolean
+    guesses: ReadonlyArray<string>,
+    allHints: ReadonlyArray<ReadonlyArray<Hint>>,
+    lost: boolean
 ) => {
-  navigator.clipboard.writeText(
-    `${GAME_TITLE} ${solutionIndex} ${lost ? 'X' : guesses.length}/6${
-      isHardMode ? '*' : ''
-    }\n\n` + generateEmojiGrid(guesses)
-  )
+    navigator.clipboard.writeText(
+        `${GAME_TITLE} ${lost ? 'X' : guesses.length}/6\n\n` +
+            generateEmojiGrid(allHints)
+    )
 }
 
-export const generateEmojiGrid = (guesses: string[]) => {
-  return guesses
-    .map((guess) => {
-      const status = getGuessStatuses(guess)
-      return guess
-        .split('')
-        .map((_, i) => {
-          switch (status[i]) {
-            case 'correct':
-              return '🟩'
-            case 'present':
-              return '🟨'
-            default:
-              return '⬜'
-          }
+export const generateEmojiGrid = (
+    allHints: ReadonlyArray<ReadonlyArray<Hint>>
+) => {
+    return allHints
+        .map((hints) => {
+            return hints
+                .map((h) => {
+                    switch (h) {
+                        case Hint.GoodPosition:
+                            return '🟩'
+                        case Hint.BadPosition:
+                            return '🟨'
+                        default:
+                            return '⬜'
+                    }
+                })
+                .join('')
         })
-        .join('')
-    })
-    .join('\n')
+        .join('\n')
 }
