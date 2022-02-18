@@ -1,7 +1,7 @@
 import R from 'react'
 import Term from 'react-console-emulator'
 
-import verifyKey from '../../verification_key.json'
+import verifyKey from '../../generated/verification_key.json'
 import { ALPHABET, MAX_WORD_LENGTH } from '../../constants/settings'
 import { Hint, Scalars } from '../../generated'
 

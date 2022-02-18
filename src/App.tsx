@@ -108,7 +108,7 @@ function App({ solutionHash, validGuesses }: AppProps) {
             allHints,
             isGameWon,
         })
-    }, [guesses])
+    }, [guesses]) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         if (isGameWon) {
@@ -228,7 +228,7 @@ function App({ solutionHash, validGuesses }: AppProps) {
             }
         }
         effect()
-    }, [guessResponse.data])
+    }, [guessResponse.data]) // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         setIsWaiting(false)
