@@ -1,6 +1,7 @@
 {
   "name": "@zkwordle/client",
   "version": "0.1.0",
+  "license": "MIT",
   "dependencies": {
     "@apollo/client": "^3.5.8",
     "@headlessui/react": "^1.4.2",
