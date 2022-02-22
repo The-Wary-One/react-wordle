@@ -235,9 +235,9 @@ function App({ solutionHash, validGuesses }: AppProps) {
     }, [guessResponse.error])
 
     return (
-        <div className="pt-2 pb-8 grid grid-cols-3 gap-1 sm:px-6 lg:px-8">
-            <div className="col-start-2">
-                <div className="flex w-80 mx-auto items-center mb-8 mt-20">
+        <div className="pt-2 pb-8 grid grid-cols-2 md:grid-cols-3 gap-1 sm:px-6 lg:px-8">
+            <div className="col-start-1 md:col-start-2">
+                <div className="flex md:w-80 mx-auto items-center mb-8 mt-20">
                     <h1 className="text-xl ml-2.5 grow font-bold dark:text-white">
                         {GAME_TITLE}
                     </h1>
